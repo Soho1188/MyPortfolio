@@ -1,0 +1,32 @@
+[
+    {
+        "id":"project1", 
+        "title":"Hospital Network System Design Using Cisco Packet Tracer",
+        "details":"Technologies implemented; Hierarchical Network Design, ISPs, VLANs, Inter-VLAN Routing (Switch Virtual Interface SVI), DHCP Server, Port-Security, SSH, NAT Overload(Port Address Translation PAT), ACL, Site-to-Site IPsec VPN, WLAN (how to configure access points), Static IPv4 Addressing, Host Configurations e.t.c",
+        "github": "https://github.com/your-repo/project1",
+        "images": [
+            { "src":"https://via.placeholder.com/600x400", "caption": "Feature 1 description." },
+            { "src": "https://via.placeholder.com/600x400", "caption": "Feature 2 description." }
+        ]
+    }, 
+    {
+        "id":"project1", 
+        "title":"Hospital Network System Design Using Cisco Packet Tracer",
+        "details":"Technologies implemented; Hierarchical Network Design, ISPs, VLANs, Inter-VLAN Routing (Switch Virtual Interface SVI), DHCP Server, Port-Security, SSH, NAT Overload(Port Address Translation PAT), ACL, Site-to-Site IPsec VPN, WLAN (how to configure access points), Static IPv4 Addressing, Host Configurations e.t.c",
+        "github": "https://github.com/your-repo/project1",
+        "images": [
+            { "src":"https://via.placeholder.com/600x400", "caption": "Feature 1 description." },
+            { "src": "https://via.placeholder.com/600x400", "caption": "Feature 2 description." }
+        ]
+    },
+    {
+        "id":"project1", 
+        "title":"Hospital Network System Design Using Cisco Packet Tracer",
+        "details":"Technologies implemented; Hierarchical Network Design, ISPs, VLANs, Inter-VLAN Routing (Switch Virtual Interface SVI), DHCP Server, Port-Security, SSH, NAT Overload(Port Address Translation PAT), ACL, Site-to-Site IPsec VPN, WLAN (how to configure access points), Static IPv4 Addressing, Host Configurations e.t.c",
+        "github": "https://github.com/your-repo/project1",
+        "images": [
+            { "src":"https://via.placeholder.com/600x400", "caption": "Feature 1 description." },
+            { "src": "https://via.placeholder.com/600x400", "caption": "Feature 2 description." }
+        ]
+    }
+]
