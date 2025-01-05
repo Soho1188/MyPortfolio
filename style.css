@@ -1,205 +1,332 @@
 /* General Dark Theme */
 body {
-    font-family: Monospace;
-    background: linear-gradient(135deg, #2c003e, #12001a 50%, #1a001f); /* Purple gradient */
-    color: #f8dff8; /* Light lavender text */
-    margin: 0;
-    line-height: 1.6;
-    min-height: 100vh; /* Ensure the gradient covers the full screen */
+  font-family: Monospace;
+  background: linear-gradient(
+    135deg,
+    #2c003e,
+    #12001a 50%,
+    #1a001f
+  ); /* Purple gradient */
+  color: #f8dff8; /* Light lavender text */
+  margin: 0;
+  line-height: 1.6;
+  min-height: 100vh; /* Ensure the gradient covers the full screen */
 }
-  
+
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
-  
+
 /* Navigation Bar */
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #1a001f; /* Dark purple background */
-    padding: 1rem 0;
-    z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #1a001f; /* Dark purple background */
+  padding: 1rem 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-  
+
 nav .container {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
-  
+
 nav .menu {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
 }
-  
+
 nav .menu li {
-    display: inline;
+  display: inline;
 }
-  
+
 nav .menu a {
-    text-decoration: none;
-    color: #9feaea; /* Pink accent for navigation links */
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #9feaea; /* Pink accent for navigation links */
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
-  
-nav .menu a:hover {
-    color: #f8dff8; /* Light lavender on hover */
+
+/* Styling for links in the navigation menu */
+.menu a {
+  color: #000; /* Default text color */
+  text-decoration: none; /* Remove default underline */
+  position: relative; /* Needed for absolute positioning of pseudo-elements */
+  display: inline-block; /* Ensures the pseudo-element aligns correctly */
+  overflow: hidden; /* Keeps the pseudo-element within the link's bounds */
 }
-  
+
+/* After pseudo-element for the animated underline */
+.menu a::after {
+  content: ""; /* Necessary for pseudo-elements */
+  position: absolute;
+  width: 100%; /* Full width of the element */
+  height: 2px; /* Height of the underline */
+  bottom: 0; /* Position at the bottom of the link */
+  left: 0; /* Start from the left */
+  background-color: #f8dff8; /* Color of the underline */
+  transition: all 0.3s ease; /* Smooth transition for the animation */
+  transform: scaleX(0); /* Start scaled to 0 */
+  transform-origin: left; /* Scaling from the left */
+}
+
+/* Animation when hovering */
+.menu a:hover::after {
+  transform: scaleX(1); /* Scale to full width */
+}
+
 /* Header Section */
 header {
-    background: transparent;
-    color: #f8dff8;
-    text-align: center;
-    padding: 4rem 1rem 0rem 1rem; /* Reduced from 6rem to 4rem */
+  background: transparent;
+  color: #f8dff8;
+  text-align: center;
+  padding: 4rem 1rem 0rem 1rem; /* Reduced from 6rem to 4rem */
 }
-  
+
 header h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: #eab9ef; /* Pink accent for the title */
-    margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #eab9ef; /* Pink accent for the title */
+  margin-bottom: 1rem;
 }
-  
+
 header p {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: #eab9ef; /* Soft purple secondary color */
-    margin: 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #eab9ef; /* Soft purple secondary color */
+  margin: 0;
 }
 
 /* Typing Text */
 #typing-text {
-    color: #9feaea; /* Pink color for the typing text */
-    font-size: 1.5rem; /* Adjust the size as needed */
-    font-weight: 300; /* Light font weight */
-    display: inline-block;
+  color: #9feaea; /* Pink color for the typing text */
+  font-size: 1.5rem; /* Adjust the size as needed */
+  font-weight: 300; /* Light font weight */
+  display: inline-block;
+}
+
+/* Blinking Cursor */
+.cursor {
+  color: #f8dff8; /* Match the color of the typing text */
+  font-family: "Special Elite", "Courier New", Courier, monospace;
+  font-size: 1.5rem; /* Same size as the text */
+  font-weight: 300; /* Match the text's
+   font weight */
+  animation: blink 0.7s steps(1) infinite; /* Blink effect */
+}
+
+/* Cursor Blink Animation */
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
-  
-  /* Blinking Cursor */
-  .cursor {
-    color: #f8dff8; /* Match the color of the typing text */
-    font-family: 'Special Elite', 'Courier New', Courier, monospace;
-    font-size: 1.5rem; /* Same size as the text */
-    font-weight: 300; /* Match the text's font weight */
-    animation: blink 0.7s steps(1) infinite; /* Blink effect */
-  }
-  
-  /* Cursor Blink Animation */
-  @keyframes blink {
-    50% {
-      opacity: 0;
-    }
-  }
-  
+}
+
 /* Sections */
 section {
-    padding: 0rem 1rem;
+  padding: 0rem 1rem;
 }
-  
+
 section h2 {
-    font-size: 2rem;
-    color: #f8dff8; /* Light lavender */
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #9feaea; /* Pink underline */
-    display: inline-block;
+  font-size: 2rem;
+  color: #f8dff8; /* Light lavender */
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #9feaea; /* Pink underline */
+  display: inline-block;
 }
-  
+
 section p {
-    font-size: 1.2rem;
-    color: #f8dff8; /* Soft purple */
+  font-size: 1.2rem;
+  color: #f8dff8; /* Soft purple */
 }
 
-
-  
-  
 /* Cards for Projects */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Cards are at least 240px wide */
-    gap: 1.5rem; /* Space between cards */
-    justify-content: center; /* Center-align cards */
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  ); /* Cards are at least 240px wide */
+  gap: 1.5rem; /* Space between cards */
+  justify-content: center; /* Center-align cards */
+  padding: 0px;
 }
-  
+
 .card {
-    background: #2a002f; /* Dark purple for cards */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column; /* Ensure vertical layout inside */
-    justify-content: space-between; /* Space out content vertically */
+  height: auto; /* Default: Height adapts to content */
+  background: #2a002f; /* Dark purple for cards */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Ensure vertical layout inside */
+  justify-content: space-around; /* Space out content vertically */
+  gap: 0;
 }
 
 .card img {
-    width: 100%; /* Ensure the image spans the card width */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 60%; /* Restrict image height to fit within 400px card */
-    object-fit: cover; /* Crop the image if necessary */
-}
-  
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-}
-  
-  
-.card h3 {
-    font-size: 1.25rem;
-    margin: 1rem 0;
-    color: #9feaea; /* Light lavender */
-}
-  
-  
-/* Buttons */
-.btn {
-    display: inline-block;
-    margin: 1rem 0;
-    padding: 0.75rem 1.5rem;
-    background: #eab9ef; /* Pink button background */
-    color: #2c003e; /* Dark purple text */
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-  
-.btn:hover {
-    background: #f8dff8; /* Light lavender on hover */
-    color: #2a002f;
-}
-  
-/* Footer */
-footer {
-    text-align: center;
-    color: #d08cd8; /* Soft purple */
-    padding: 2rem 0;
-    font-size: 0.9rem;
-}
-  
-footer a {
-    color: #9feaea; /* Pink links */
-    text-decoration: none;
-}
-  
-footer a:hover {
-    color: #f8dff8; /* Light lavender on hover */
-}
-  
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
+  width: 100%; /* Ensure the image spans the card width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 60%; /* Restrict image height to fit within 400px card */
+  object-fit: cover; /* Crop the image if necessary */
+  margin: 0;
 }
 
+.card h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: #9feaea; /* Light lavender */
+  padding: 0px 2px 2px 2px;
+  margin: 0;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.75rem 1.5rem;
+  background: #eab9ef; /* Pink button background */
+  color: #2c003e; /* Dark purple text */
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background: #f8dff8; /* Light lavender on hover */
+  color: #2a002f;
+}
+
+/* Modal overlay with dark background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background */
+  overflow: auto; /* Allow scrolling if content exceeds the viewport height */
+}
+
+/* Modal content */
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  background-color: #222; /* Dark background for the modal content */
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px; /* Constrain the maximum width */
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Prevent unnecessary overflow within the modal content */
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+/* Keyframes for modal fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Keyframes for modal growth */
+@keyframes growIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Standard and responsive image */
+#modal-image {
+  max-width: 100%; /* Responsive scaling */
+  max-height: 300px; /* Constrain height */
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* GitHub link styling */
+#modal-github {
+  color: #1e90ff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+#modal-github:hover {
+  text-decoration: underline;
+}
+
+.card {
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center;
+  perspective: 1000px;
+}
+.card.rotate {
+  transform: rotateY(90deg) scale(0.8);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #d08cd8; /* Soft purple */
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #9feaea; /* Pink links */
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #f8dff8; /* Light lavender on hover */
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}

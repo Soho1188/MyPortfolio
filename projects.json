@@ -1,32 +1,29 @@
 [
     {
         "id":"project1", 
-        "title":"Hospital Network System Design Using Cisco Packet Tracer",
-        "details":"Technologies implemented; Hierarchical Network Design, ISPs, VLANs, Inter-VLAN Routing (Switch Virtual Interface SVI), DHCP Server, Port-Security, SSH, NAT Overload(Port Address Translation PAT), ACL, Site-to-Site IPsec VPN, WLAN (how to configure access points), Static IPv4 Addressing, Host Configurations e.t.c",
-        "github": "https://github.com/your-repo/project1",
-        "images": [
-            { "src":"https://via.placeholder.com/600x400", "caption": "Feature 1 description." },
-            { "src": "https://via.placeholder.com/600x400", "caption": "Feature 2 description." }
-        ]
+        "title":"Flask REST API for CRUD Operations",
+        "cover_image": "assets/flask-rest-api.jpg",
+        "details":"A simple RESTful API built with Flask to demonstrate CRUD operations on resources. The API supports creating, reading, updating, and deleting data, uses JSON for communication, and is tested with Thunder Client.",
+        "github": "https://github.com/Soho1188/simple-falsk-rest-api.git",
+        "images": []
     }, 
     {
-        "id":"project1", 
-        "title":"Hospital Network System Design Using Cisco Packet Tracer",
-        "details":"Technologies implemented; Hierarchical Network Design, ISPs, VLANs, Inter-VLAN Routing (Switch Virtual Interface SVI), DHCP Server, Port-Security, SSH, NAT Overload(Port Address Translation PAT), ACL, Site-to-Site IPsec VPN, WLAN (how to configure access points), Static IPv4 Addressing, Host Configurations e.t.c",
-        "github": "https://github.com/your-repo/project1",
-        "images": [
-            { "src":"https://via.placeholder.com/600x400", "caption": "Feature 1 description." },
-            { "src": "https://via.placeholder.com/600x400", "caption": "Feature 2 description." }
-        ]
+        "id":"project2", 
+        "title":"Web Scraping with Python Selenium\nAutomating AWS Exam Question Collection",
+        "cover_image": "assets/webscrape.jpg",
+        "details":"In this project, I implemented an automated system to query each question individually by incrementing the question number in the Google search bar, scraping the resulting web pages for question content, multiple-choice answers, and correct responses. The scraped data is then compiled into an organized Microsoft Word document using the python-docx library. This approach showcases a targeted use of web scraping to efficiently gather specific educational materials for exam preparation.",
+
+        "github": "https://github.com/Soho1188/webscrape_aws_questions",
+        "images": []
     },
     {
-        "id":"project1", 
-        "title":"Hospital Network System Design Using Cisco Packet Tracer",
-        "details":"Technologies implemented; Hierarchical Network Design, ISPs, VLANs, Inter-VLAN Routing (Switch Virtual Interface SVI), DHCP Server, Port-Security, SSH, NAT Overload(Port Address Translation PAT), ACL, Site-to-Site IPsec VPN, WLAN (how to configure access points), Static IPv4 Addressing, Host Configurations e.t.c",
+        "id":"project3", 
+        "title":"Multi-Floor VLAN Network with Layer 3 Switching and ACL-Based Security - PacketTracer",
+        "cover_image": "assets/packetTracer.png",
+        "details":"In this project, I designed and implemented a multi-floor network using a Layer 3 switch to enable efficient inter-VLAN communication and enforce security policies. The network consisted of two floors, each with its own Layer 2 switch connecting 10 devices, and all devices were grouped into three VLANs: HR (VLAN 10), IT (VLAN 20), and Finance (VLAN 30). The Layer 2 switches connected to a Layer 3 switch via trunk ports, allowing VLAN-tagged traffic to traverse between floors. Switch Virtual Interfaces (SVIs) on the Layer 3 switch provided default gateways for each VLAN, enabling inter-VLAN routing. Additionally, Access Control Lists (ACLs) were configured to restrict traffic between specific VLANs, such as blocking VLAN 10 from accessing VLAN 20 while allowing other communication. The setup demonstrated key networking concepts, including VLAN segmentation, trunking, inter-VLAN routing, and traffic control with ACLs, and was thoroughly tested to ensure functionality and security across the multi-floor topology.",
         "github": "https://github.com/your-repo/project1",
         "images": [
-            { "src":"https://via.placeholder.com/600x400", "caption": "Feature 1 description." },
-            { "src": "https://via.placeholder.com/600x400", "caption": "Feature 2 description." }
+            { "src":"https://github.com/Soho1188/packet-tracer-network/blob/main/image1.png", "caption": "topology" }
         ]
     }
 ]

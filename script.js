@@ -1,58 +1,93 @@
-//load projects from the JSON file and populate the galery 
-fetch("projects.json")
-    .then((response) => response.json()) //convert the response to json
-    .then((projects) => { //acces the array of project objects
-
-        //populate the gallery here 
-        //find the container in the index that we want to put this in 
-        const gallery = document.getElementById("gallery");
-
-        //loop through the projects array 
-        projects.forEach((project) => {
-            //create a card for each project
-            const card = document.createElement("div"); 
-            card.classList.add("card"); //adding card class for styling 
-            card.innerHTML = `
-            <img src="${project.images[0].src}" alt="${project.title} Screenshot">
-            <h3>${project.title}</h3>
-            `
-
-            //add click even to open project details . when card is clicked the displayProject function is called with the corresponding project data
-            card.addEventListener("click", () => displayProject(projects));
-
-            gallery.appendChild(card); 
+document.addEventListener("DOMContentLoaded", () => {
+    // Load projects from the JSON file and populate the gallery
+    fetch("projects.json")
+        .then((response) => response.json()) // Convert the response to JSON
+        .then((projects) => {
+            populateGallery(projects);
         })
+        .catch((error) => {
+            console.error("Failed to load projects:", error);
+        });
+
+    // Typing effect for "Welcome to my Portfolio"
+    startTypingEffect();
+
+    // Close button event listener
+    document.getElementById("close-modal").addEventListener("click", closeModal);
+
+    // Close modal when clicking outside the modal content
+    window.addEventListener("click", (event) => {
+        const modal = document.getElementById("modal");
+        if (event.target === modal) {
+            closeModal();
+        }
     });
+});
 
+// Function to populate the gallery with project cards
+function populateGallery(projects) {
+    const gallery = document.getElementById("gallery");
 
-//function to display project details 
-function displayProject(project){
+    projects.forEach((project) => {
+        const card = document.createElement("div");
+        card.classList.add("card"); // Adding card class for styling
+        card.innerHTML = `
+            <img src="${project.cover_image}" alt="${project.title} Screenshot">
+            <h3>${project.title}</h3>
+        `;
 
+        // Add click event to rotate card and open modal
+        card.addEventListener("click", () => {
+            card.classList.add("rotate");
+            setTimeout(() => openModal(project), 500); // Delay to allow rotation animation
+        });
+
+        gallery.appendChild(card);
+    });
 }
 
-//typing effect for welcome to my portfolio 
-const typingText = "Welcome to my Portfolio!"
-const typingElement = document.getElementById("typing-text")
-const cursorElement = document.querySelector(".cursor");
-let currentIndex = 0; 
+// Function to open the modal and display project details
+function openModal(project) {
+    const modal = document.getElementById("modal");
+    document.getElementById("modal-title").textContent = project.title;
+    document.getElementById("modal-image").src = project.cover_image;
+    document.getElementById("modal-details").textContent = project.details;
+    document.getElementById("modal-github").href = project.github;
 
-//Function to type each letter
-function type(){
-    if (currentIndex < typingText.length){
-        typingElement.textContent += typingText[currentIndex];
-        currentIndex++;
-        setTimeout(type, 200);
-    }else{
-        setTimeout(resetTyping, 1000);
+    modal.style.display = "block"; // Show the modal
+}
+
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none"; // Hide the modal
+
+    // Reset any rotated cards
+    const rotatedCards = document.querySelectorAll(".card.rotate");
+    rotatedCards.forEach((card) => card.classList.remove("rotate"));
+}
+
+// Typing effect for "Welcome to my Portfolio"
+function startTypingEffect() {
+    const typingText = "Welcome to my Portfolio!";
+    const typingElement = document.getElementById("typing-text");
+    let currentIndex = 0;
+
+    function type() {
+        if (currentIndex < typingText.length) {
+            typingElement.textContent += typingText[currentIndex];
+            currentIndex++;
+            setTimeout(type, 200);
+        } else {
+            setTimeout(resetTyping, 1000);
+        }
     }
 
-}
+    function resetTyping() {
+        typingElement.textContent = "";
+        currentIndex = 0;
+        type();
+    }
 
-function resetTyping (){
-    typingElement.textContent = "";
-    currentIndex = 0
     type();
 }
-
-//start typing effect
-type(); 
